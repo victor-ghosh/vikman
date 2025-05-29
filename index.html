@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PICO Query Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>PICO Search Query Generator</h1>
+  <div class="mode-toggle">
+    <input type="radio" name="mode" id="mode-normal" value="normal" checked>
+    <label for="mode-normal">Normal</label>
+    <input type="radio" name="mode" id="mode-advanced" value="advanced">
+    <label for="mode-advanced">Advanced</label>
+  </div>
+</header>
+
+<main>
+  <!-- PICO fields -->
+  <section id="pico-fields" class="fields-container">
+    <!-- Population -->
+    <div class="field-block" data-field="population">
+      <label for="population-input">Population</label>
+      <input id="population-input" class="pico-input" type="text"
+             placeholder="max 4 words" autocomplete="off">
+      <ul id="population-suggestions" class="suggestion-list"></ul>
+      <div id="population-terms" class="added-terms"></div>
+    </div>
+
+    <!-- Intervention -->
+    <div class="field-block" data-field="intervention">
+      <label for="intervention-input">Intervention</label>
+      <input id="intervention-input" class="pico-input" type="text"
+             placeholder="max 4 words" autocomplete="off">
+      <ul id="intervention-suggestions" class="suggestion-list"></ul>
+      <div id="intervention-terms" class="added-terms"></div>
+    </div>
+
+    <!-- Control -->
+    <div class="field-block" data-field="control">
+      <label for="control-input">Control</label>
+      <input id="control-input" class="pico-input" type="text"
+             placeholder="max 4 words" autocomplete="off">
+      <ul id="control-suggestions" class="suggestion-list"></ul>
+      <div id="control-terms" class="added-terms"></div>
+    </div>
+
+    <!-- Outcome -->
+    <div class="field-block" data-field="outcome">
+      <label for="outcome-input">Outcome</label>
+      <input id="outcome-input" class="pico-input" type="text"
+             placeholder="max 4 words" autocomplete="off">
+      <ul id="outcome-suggestions" class="suggestion-list"></ul>
+      <div id="outcome-terms" class="added-terms"></div>
+    </div>
+  </section>
+
+  <!-- Table-1 filters -->
+  <section id="filters-strip" class="filter-strip"></section>
+
+  <!-- Search button -->
+  <div class="search-controls">
+    <button id="search-btn" disabled>Search</button>
+  </div>
+
+  <!-- Results -->
+  <section id="results-section" class="results-container" hidden>
+    <h2>Database-specific queries</h2>
+    <div class="results-grid">
+      <!-- identical markup for each DB -->
+      <div class="query-box"><h4>PubMed</h4>
+        <textarea id="q-pubmed" readonly rows="4"></textarea>
+        <div class="query-actions">
+          <button class="copy-btn" data-t="q-pubmed">Copy</button>
+          <button class="open-btn" data-db="pubmed">Open</button>
+        </div>
+      </div>
+      <div class="query-box"><h4>Embase</h4>
+        <textarea id="q-embase" readonly rows="4"></textarea>
+        <div class="query-actions">
+          <button class="copy-btn" data-t="q-embase">Copy</button>
+          <button class="open-btn" data-db="embase">Open</button>
+        </div>
+      </div>
+      <div class="query-box"><h4>Scopus</h4>
+        <textarea id="q-scopus" readonly rows="4"></textarea>
+        <div class="query-actions">
+          <button class="copy-btn" data-t="q-scopus">Copy</button>
+          <button class="open-btn" data-db="scopus">Open</button>
+        </div>
+      </div>
+      <div class="query-box"><h4>Cochrane</h4>
+        <textarea id="q-cochrane" readonly rows="4"></textarea>
+        <div class="query-actions">
+          <button class="copy-btn" data-t="q-cochrane">Copy</button>
+          <button class="open-btn" data-db="cochrane">Open</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
